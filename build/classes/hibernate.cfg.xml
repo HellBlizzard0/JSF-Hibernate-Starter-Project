@@ -1,0 +1,58 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+  "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+  "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+
+    <session-factory>
+
+        <!-- Database connection settings -->
+        <property name="connection.driver_class">oracle.jdbc.driver.OracleDriver</property>
+        <property name="connection.url">jdbc:oracle:thin:@192.168.8.44:1521:FGO</property>
+        <property name="connection.username">TEST</property>
+        <property name="connection.password">TEST</property>
+
+        <!-- JDBC connection pool (use the built-in) -->
+        <property name="connection.pool_size">1</property>
+
+        <!-- SQL dialect -->
+        <property name="dialect">org.hibernate.dialect.Oracle10gDialect</property>
+
+        <!-- Disable the second-level cache  -->
+        <property name="cache.provider_class">org.hibernate.cache.NoCacheProvider</property>
+
+        <!-- Echo all executed SQL to stdout -->
+        <property name="show_sql">true</property>
+
+        <!-- Drop and re-create the database schema on startup -->
+        <property name="hbm2ddl.auto">update</property>
+<!-- 		 <property name="hibernate.transaction.factory_class">org.hibernate.transaction.JTATransactionFactory</property> --> 
+	
+		
+		<mapping class="orm.User"/>
+		<mapping class="orm.Category"/>
+		<mapping class="orm.BorrowData"/>
+		<mapping class="orm.Borrow"/>
+		<mapping class="orm.Place"/>
+		<mapping class="orm.Book"/>
+		<mapping class="orm.CategoryData"/>
+		<mapping class="orm.BookData"/>
+		<mapping class="orm.ParentHierarchy"/>
+		
+		
+		<mapping class="hr.orm.UserHr"/>
+		<mapping class="hr.orm.Course"/>
+		<mapping class="hr.orm.CourseCategory"/>
+		<mapping class="hr.orm.CourseInstructor"/>
+		<mapping class="hr.orm.Enrollment"/>
+		<mapping class="hr.orm.Role"/>
+		<mapping class="hr.orm.UserData"/>
+		<mapping class="hr.orm.CourseData"/>
+		<mapping class="hr.orm.CourseCategoryData"/>
+		<mapping class="hr.orm.CourseInstructorData"/>
+		<mapping class="hr.orm.EnrollmentData"/>
+		<mapping class="hr.orm.RoleData"/>
+		
+	</session-factory>
+</hibernate-configuration>
